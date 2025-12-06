@@ -12,4 +12,4 @@ Build → Push to ECR
 
 Deploy to Dev
 
-Approval required → Deploy to Prod
+Approval required → Deploy to Prod.
