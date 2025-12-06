@@ -91,7 +91,18 @@ resource "aws_iam_role_policy" "terraform_permissions" {
           "application-autoscaling:*",
           "autoscaling:*",
           "route53:*",
-          "servicediscovery:*"
+          "servicediscovery:*",
+          # Permissions required for Terraform remote state in S3
+          "s3:GetObject",
+          "s3:PutObject",
+          "s3:ListBucket",
+          "s3:GetBucketLocation",
+          "s3:DeleteObject",
+          # KMS permissions in case the state bucket uses KMS encryption
+          "kms:Decrypt",
+          "kms:Encrypt",
+          "kms:GenerateDataKey",
+          "kms:DescribeKey"
         ]
         Resource = "*"
       }
